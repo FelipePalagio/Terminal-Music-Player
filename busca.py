@@ -54,7 +54,7 @@ def aleatoria(x):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-search", required=True, help="String to search")
+parser.add_argument("-search",  help="String to search")
 args = parser.parse_args()
 #print(f'BUSCA::: {args.search}')
 
@@ -62,9 +62,3 @@ local_de_arquivos = '/media/felipe_palagio/BAKITUP/felipe'
 tar = executar(local_de_arquivos,args.search)
 for i in tar:
     print(i)
-
-
-
-
-
-
