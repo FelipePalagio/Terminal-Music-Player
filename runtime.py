@@ -55,7 +55,7 @@ def play_with_ui(track):
         anim_index += 1
         time.sleep(0.15)
 
-    print("\n\033[1;32mTEXAS!\033[0m")
+    print("\n\033[1;32mMONA LISA OVERDRIVE!\033[0m")
 
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[1] == "play_with_ui":
