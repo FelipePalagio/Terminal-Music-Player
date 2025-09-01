@@ -1,6 +1,6 @@
 
 local configs = {
-    LED = "/media/felipe_palagio/BAKITUP",
+    LED = "MEDIA FUCKING PATH",
 }
 
 for k, v in pairs(configs) do
