@@ -1,11 +1,26 @@
 
 #!/bin/bash
+# Monta automaticamente a memoria externa no caminho DEVICE
+eval "$(luajit config.lua bash)"
 
-DEVICE="/dev/sda1"
-MOUNT_LABEL="BAKITUP"
-TARGET_DIR="/media/$USER/$MOUNT_LABEL"
+DEVICE="$DVC"
+MOUNTPOINT="$1"
 
-udisksctl mount -b "$DEVICE"
+OK="✔"; ERR="✘"; INFO="➜"
+GREEN="\e[32m"; RED="\e[31m"; YELLOW="\e[33m"; RESET="\e[0m"
 
+if [ -z "$MOUNTPOINT" ]; then
+    echo -e "${RED}${ERR} NENHUM DISPOSITIVO FISICO ENCRONTRADO.${RESET}"
+    echo -e "${INFO} : $0 /media/\$USER/LABEL"
+    exit 1
+fi
 
-sleep=2
+OUT=$(udisksctl mount -b "$DEVICE" 2>&1)
+
+if [ $? -eq 0 ]; then
+    echo -e "${GREEN}${OK} FEITO O MOUNT${RESET}"
+    echo -e "${INFO} ${OUT}"
+else
+    echo -e "${RED}${ERR} ERRO NO MOUNT${RESET}"
+    echo "$OUT"
+fi

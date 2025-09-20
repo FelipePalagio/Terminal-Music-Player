@@ -1,17 +1,21 @@
 
-
+#ARQUIVO PRINCIPAL DO PROGRAMA
 #!/bin/bash
 
 cd ~/RealG
 
-eval "$(luajit config.lua)"
+source REALmotherfuckingGEEZ/bin/activate
 
-MOUNTPOINT= "$LED"
+
+eval "$(luajit config.lua bash)"
+
+
+MOUNTPOINT="$LED"
 
 if mountpoint -q "$MOUNTPOINT"; then
     true
 else
-    ./mounter.sh
+    ./mounter.sh "$MOUNTPOINT"
 fi
 
 

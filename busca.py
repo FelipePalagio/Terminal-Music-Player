@@ -4,7 +4,7 @@ import random
 import time
 import re
 import argparse
-
+from lupa import LuaRuntime
 from multiprocessing import Pool, cpu_count
 from functools import partial
 
@@ -53,12 +53,16 @@ def aleatoria(x):
     return random.choice(x)
 
 
+lua = LuaRuntime()
+
+lua = LuaRuntime()
+configs = lua.execute(open("config.lua").read())
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-search",  help="String to search")
 args = parser.parse_args()
-#print(f'BUSCA::: {args.search}')
 
-local_de_arquivos = '/media/felipe_palagio/BAKITUP/felipe'
+local_de_arquivos = configs["LED"]
 tar = executar(local_de_arquivos,args.search)
 for i in tar:
     print(i)
