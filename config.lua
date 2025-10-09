@@ -5,7 +5,7 @@ local configs = {
   USE = true,
 }
 
--- if run with argument "bash", print as KEY=VALUE
+
 if arg and arg[1] == "bash" then
   for k, v in pairs(configs) do
     if type(v) == "boolean" then
@@ -16,6 +16,5 @@ if arg and arg[1] == "bash" then
   os.exit()
 end
 
--- otherwise return for Python
 return configs
 
