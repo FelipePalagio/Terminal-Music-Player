@@ -1,7 +1,7 @@
-
+--AQUI VAI O NOME DO ARMZ EXTERNO
 local configs = {
-  LED = "/media/felipe_palagio/BAKITUP",
-  DVC = "/dev/sdb1",
+  LED = "/caminho/para/HDDEXT", --EXMPLO
+  DVC = "/dev/sdb1", --EXEMPLO 
   USE = true,
 }
 
